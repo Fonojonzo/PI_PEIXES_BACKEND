@@ -1,0 +1,54 @@
+/* Cadastro.css */
+
+/* Container principal */
+.cadastro-container {
+    max-width: 800px;
+    max-height: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 6rem;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: white;
+  }
+  .titulo{
+    align-items: center;
+    display: flex;
+    margin-left: 19rem;
+    color: black
+  }
+  
+  /* Alinhe os itens verticalmente */
+  .input-with-icon {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Espaçamento entre o ícone e o campo de senha */
+  .input-icon-div {
+    margin-left: 10px;
+  }
+  
+  /* Estilize o botão de cadastro */
+  .rs-btn-primary {
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .rs-btn-primary:hover {
+    background-color: #0056b3;
+  }
+  .input-icon-div{
+    border: 1px solid #585656;
+    border-radius: 3px;
+    height: 35px;
+    margin-top: -5px;
+    margin-left: 36.25rem !important;
+    }
