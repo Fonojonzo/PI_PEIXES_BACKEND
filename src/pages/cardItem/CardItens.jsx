@@ -14,7 +14,7 @@ const Card = () => {
   useEffect(() => {
     const fetchPeixes = async () => {
       try {
-        const response = await fetch(`http://localhost:5000/api/users/peixes/${userId}`);
+        const response = await fetch(`https://api-peixes-cxxg.vercel.app/api/users/peixes/${userId}`);
         const data = await response.json();
         setListCard(data);
       } catch (error) {
