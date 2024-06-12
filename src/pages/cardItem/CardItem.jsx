@@ -19,7 +19,7 @@ const CardItem = ({ listCard, refreshList }) => {
   const handleDelete = async (id) => {
     console.log("ID do peixe para deletar:", id);  // Log para verificar o ID
     try {
-      const response = await axios.delete(`https://api-peixes.vercel.app/api/users/${id}`);
+      const response = await axios.delete(`https://api-peixes.vercel.app/api/peixes/${id}`);
       console.log("Resposta da API:", response);  // Log para verificar a resposta da API
       alert("Peixe removido com sucesso!");
       refreshList();
