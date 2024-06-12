@@ -40,7 +40,7 @@ const Cadastro = () => {
     }
 
     try {
-      const response = await fetch('https://api-peixes-cxxg.vercel.app/api/users', {
+      const response = await fetch('https://api-peixes.vercel.app/api/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
