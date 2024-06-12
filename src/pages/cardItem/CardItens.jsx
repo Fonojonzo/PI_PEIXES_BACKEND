@@ -26,7 +26,7 @@ const Card = ({ listCard, setListPeixes }) => {
         },
       });
       setListPeixes(response.data);
-      console.log("Resposta da rota de peixes:", response.data); // Adicionando o console.log
+      console.log("Resposta da rota de peixes:", response.data);
     } catch (error) {
       console.error("Erro ao buscar dados:", error);
     }
