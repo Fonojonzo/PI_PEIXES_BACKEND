@@ -1,4 +1,4 @@
-import React, { useEffect, } from "react";
+import React, { useEffect } from "react";
 import CardItem from "./CardItem";
 import "./app.css";
 import HeaderCard from "../header/Header";
@@ -10,6 +10,8 @@ const Card = ({ listCard, setListPeixes }) => {
   }, []);
 
   async function get() {
+    console.log("Antes da chamada axios");
+
     var idUsuario = sessionStorage.getItem("idUsuario");
     if (!idUsuario) {
       console.error("ID de usuário não encontrado no sessionStorage");
@@ -28,6 +30,8 @@ const Card = ({ listCard, setListPeixes }) => {
     } catch (error) {
       console.error("Erro ao buscar dados:", error);
     }
+
+    console.log("Depois da chamada axios");
   }
 
   return (
