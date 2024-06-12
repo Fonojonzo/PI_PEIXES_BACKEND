@@ -1,40 +1,41 @@
-import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, } from "react";
 import CardItem from "./CardItem";
 import "./app.css";
-import { Header } from "rsuite";
 import HeaderCard from "../header/Header";
+import axios from "axios";
 
-const Card = () => {
-  const location = useLocation();
-  const userId = location.state?.userId;
-
-  const [listCard, setListCard] = useState([]);
-
+const Card = ({ listCard, setListPeixes }) => {
   useEffect(() => {
-    const fetchPeixes = async () => {
-      try {
-        const response = await fetch(`https://api-peixes.vercel.app/api/users/peixes/${userId}`);
-        const data = await response.json();
-        setListCard(data);
-      } catch (error) {
-        console.error("Erro ao buscar peixes:", error);
-      }
-    };
+    get();
+  }, []);
 
-    if (userId) {
-      fetchPeixes();
+  async function get() {
+    var idUsuario = sessionStorage.getItem("idUsuario");
+    if (!idUsuario) {
+      console.error("ID de usuário não encontrado no sessionStorage");
+      return;
     }
-  }, [userId]);
+
+    try {
+      const apiUrl = `https://api-peixes-cxxg.vercel.app/api/users/peixes/${idUsuario}`;
+      const response = await axios.get(apiUrl, {
+        headers: {
+          Accept: "application/json",
+          "User-Agent": "Thunder Client (https://www.thunderclient.com)",
+        },
+      });
+      setListPeixes(response.data);
+    } catch (error) {
+      console.error("Erro ao buscar dados:", error);
+    }
+  }
 
   return (
     <div className="App">
       <HeaderCard />
       <h1>Meus Peixes</h1>
       <div className="card-container">
-        {listCard.map((peixe) => (
-          <CardItem key={peixe._id} peixe={peixe} />
-        ))}
+        <CardItem listCard={listCard} />
       </div>
     </div>
   );

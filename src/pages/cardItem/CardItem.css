@@ -5,13 +5,19 @@
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 300px;
+    max-width: 350px;
+    max-height: 350px;
+    height: 380px;
+    width: 300px;
     margin: 16px;
+    cursor: pointer;
   }
   
   .card-image {
-    width: 100%;
+    width: 80%; /* Reduzindo a largura da imagem para caber melhor dentro do contêiner */
     height: auto;
+    margin: auto; /* Alinha a imagem ao centro horizontalmente */
+    display: block; /* Define a imagem como um bloco para que o margin: auto funcione corretamente */
   }
   
   .card-content {

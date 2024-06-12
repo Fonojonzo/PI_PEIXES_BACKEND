@@ -23,7 +23,7 @@ const Login = () => {
 
     await axios({
       method: "post",
-      url: "https://api-peixes.vercel.app/api/users/login",
+      url: "https://api-peixes-cxxg.vercel.app/api/users/login",
       headers: {
         accept: "*/*",
         "Content-Type": "application/json",
