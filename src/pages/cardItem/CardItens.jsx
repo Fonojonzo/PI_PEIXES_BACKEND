@@ -10,12 +10,12 @@ const Card = ({ listCard, setListPeixes }) => {
   }, []);
 
   async function get() {
-
     var idUsuario = sessionStorage.getItem("idUsuario");
     if (!idUsuario) {
       console.error("ID de usuário não encontrado no sessionStorage");
       return;
     }
+    console.log("ID do usuário:", idUsuario);
 
     try {
       const apiUrl = `https://api-peixes.vercel.app/api/users/peixes/${idUsuario}`;
