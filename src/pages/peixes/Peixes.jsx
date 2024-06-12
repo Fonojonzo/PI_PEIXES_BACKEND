@@ -27,13 +27,13 @@ const Peixes = () => {
     }
 
     const obj = {
-      usuarioId,
       Especie: especie,
       Nome: nome,
       Tempo_alimentacao: tempoAlimentacao,
       Quantidade: quantidade,
       Alimentacao: alimentacao,
       Imagem: imagem ? imagem : "https://i0.wp.com/carbonozero.net/wp-content/uploads/2022/06/lula-gigante-mitologia.jpg?fit=1920%2C1080&ssl=1",
+      ID_usuario: usuarioId, // Certifique-se de adicionar o campo ID_usuario
     };
 
     try {
@@ -47,6 +47,7 @@ const Peixes = () => {
         history("/home");
       }
     } catch (error) {
+      console.error(error.response.data);
       swal({
         title: "ERRO!",
         text: "Erro ao cadastrar o peixe. Por favor, tente novamente.",
