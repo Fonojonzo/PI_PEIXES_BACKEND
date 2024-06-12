@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import "./CardItem.css";
-import { FlexboxGrid, Modal } from "rsuite";
+import { FlexboxGrid, Modal, Button } from "rsuite";
+import axios from "axios";
 
-const CardItem = ({ listCard }) => {
+const CardItem = ({ listCard, refreshList }) => {
   const [open, setOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
 
@@ -14,13 +15,26 @@ const CardItem = ({ listCard }) => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleDelete = async (id) => {
+    console.log("ID do peixe para deletar:", id);  // Log para verificar o ID
+    try {
+      const response = await axios.delete(`https://api-peixes.vercel.app/api/users/${id}`);
+      console.log("Resposta da API:", response);  // Log para verificar a resposta da API
+      alert("Peixe removido com sucesso!");
+      refreshList();
+    } catch (error) {
+      console.error("Erro ao remover peixe:", error.response || error);  // Log detalhado do erro
+      alert("Erro ao remover peixe. Tente novamente.");
+    }
+  };
+
   return (
     <>
       {listCard.map((e) => (
-        <div className="card-list">
+        <div className="card-list" key={e._id}>
           <div
             className="card"
-            key={e._id}
             onClick={() => {
               handleOpen(e);
             }}
@@ -35,6 +49,17 @@ const CardItem = ({ listCard }) => {
               </p>
               <p className="card-description">Quantidade: {e.Quantidade}</p>
             </div>
+            <Button
+              className="btn_remove"
+              color="red"
+              appearance="primary"
+              onClick={(event) => {
+                event.stopPropagation();
+                handleDelete(e._id);
+              }}
+            >
+              Remover peixe
+            </Button>
           </div>
         </div>
       ))}
@@ -47,7 +72,7 @@ const CardItem = ({ listCard }) => {
                 <img
                   style={{ width: "60%" }}
                   src={selectedCard?.Imagem}
-                  alt={selectedCard?.nome}
+                  alt={selectedCard?.Nome}
                   className="card-image"
                 />
               </FlexboxGrid.Item>
@@ -65,6 +90,14 @@ const CardItem = ({ listCard }) => {
                 <p className="card-description">
                   Quantidade: {selectedCard?.Quantidade}
                 </p>
+                <Button
+                  className="btn_remove"
+                  color="red"
+                  appearance="primary"
+                  onClick={() => handleDelete(selectedCard?._id)}
+                >
+                  Remover peixe
+                </Button>
               </FlexboxGrid.Item>
             </FlexboxGrid>
           </div>

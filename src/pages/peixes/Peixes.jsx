@@ -106,11 +106,11 @@ const Peixes = () => {
           </FlexboxGrid.Item>
           <FlexboxGrid.Item colspan={24}>
             <Form.Group>
-              <Form.ControlLabel className="label">Quantidade</Form.ControlLabel>
+              <Form.ControlLabel className="label">Quantidade de alimento</Form.ControlLabel>
               <Form.Control
                 name="Quantidade"
                 type="number"
-                placeholder="Digite a Quantidade"
+                placeholder="Digite a Quantidade de alimento por porção"
                 value={quantidade}
                 width={"100%"}
                 onChange={(value) => setQuantidade(value)}
@@ -127,6 +127,17 @@ const Peixes = () => {
                 value={tempoAlimentacao}
                 width={"100%"}
                 onChange={(value) => setTempoAlimentacao(value)}
+              />
+            </Form.Group>
+          </FlexboxGrid.Item>
+          <FlexboxGrid.Item colspan={24}>
+            <Form.Group>
+              <Form.ControlLabel className="label">Preço da ração</Form.ControlLabel>
+              <Form.Control
+                name="Quantidade"
+                type="number"
+                placeholder="Digite a o valor do KG da ração"
+                width={"100%"}
               />
             </Form.Group>
           </FlexboxGrid.Item>

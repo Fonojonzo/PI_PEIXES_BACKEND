@@ -20,6 +20,11 @@
     display: block; /* Define a imagem como um bloco para que o margin: auto funcione corretamente */
   }
   
+  .btn_remove {
+    background-color: rgb(255, 61, 61);
+    color: black;
+  }
+
   .card-content {
     padding: 16px;
   }
