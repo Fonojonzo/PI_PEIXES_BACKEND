@@ -17,7 +17,7 @@ const Card = ({ listCard, setListPeixes }) => {
     }
 
     try {
-      const apiUrl = `https://api-peixes-cxxg.vercel.app/api/users/peixes/${idUsuario}`;
+      const apiUrl = `https://api-peixes.vercel.app/api/users/peixes/${idUsuario}`;
       const response = await axios.get(apiUrl, {
         headers: {
           Accept: "application/json",

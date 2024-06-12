@@ -40,7 +40,7 @@ const Cadastro = () => {
 
       await axios({
         method: "post",
-        url: "https://api-peixes-cxxg.vercel.app/api/users/",
+        url: "https://api-peixes.vercel.app/api/users/",
         headers: {
           accept: "*/*",
           "Content-Type": "application/json",
