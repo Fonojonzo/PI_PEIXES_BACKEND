@@ -10,7 +10,6 @@ const Card = ({ listCard, setListPeixes }) => {
   }, []);
 
   async function get() {
-    console.log("Antes da chamada axios");
 
     var idUsuario = sessionStorage.getItem("idUsuario");
     if (!idUsuario) {
@@ -27,11 +26,11 @@ const Card = ({ listCard, setListPeixes }) => {
         },
       });
       setListPeixes(response.data);
+      console.log("Resposta da rota de peixes:", response.data); // Adicionando o console.log
     } catch (error) {
       console.error("Erro ao buscar dados:", error);
     }
 
-    console.log("Depois da chamada axios");
   }
 
   return (
