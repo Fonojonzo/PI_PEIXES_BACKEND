@@ -1,14 +1,14 @@
 
 
 /* Estilize o container do formulário */
-.login-container {
+.login-containers {
   max-width: 800px;
   max-height: 800px;
   margin: 0 auto;
-  margin-top: 7rem;
+  margin-top: 5rem !important;
   padding: 20px;
   border: 1px solid #E3E0EA;
-  border-radius: 5px;
+  border-radius: 10px; /* Adicionando bordas arredondadas */
   background-color: white;
 }
 
@@ -41,7 +41,7 @@
 
 .input-icon-divs{
 border: 1px solid #ffffff;
-border-radius: 3px;
+border-radius: 30px;
 height: 35px;
 margin-top: -15px;
 margin-left: 36.25rem ;

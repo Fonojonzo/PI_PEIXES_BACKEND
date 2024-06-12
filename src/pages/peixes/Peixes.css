@@ -1,0 +1,57 @@
+
+
+/* Estilize o container do formulário */
+.login-container {
+    max-width: 800px;
+    max-height: 780px;
+    margin: 0 auto;
+    margin-top: 0.6rem !important;
+    padding: 20px;
+    border: 1px solid #E3E0EA;
+    border-radius: 5px;
+    background-color: white;
+  }
+  
+  /* Estilize os campos de entrada */
+  .rs-input {
+    width: 440% !important;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #E3E0EA;
+    border-radius: 3px;
+    font-size: 14px;
+  }
+  
+  /* Estilize o botão de login */
+  .rs-btn-primary {
+    width: 100%;
+    padding: 10px;
+    background-color: #0554F2;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .rs-btn-primary:hover {
+    background-color: #0554F2;
+  }
+  
+  
+  .input-icon-divs{
+  border: 1px solid #ffffff;
+  border-radius: 3px;
+  height: 35px;
+  margin-top: -15px;
+  margin-left: 36.25rem ;
+  }
+  .titulo{
+    display: flex;
+    align-items: center;
+    color: black;
+  }
+  
+  .label{
+    color: black;
+  }

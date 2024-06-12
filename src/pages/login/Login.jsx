@@ -1,15 +1,16 @@
-// src/pages/login/Login.js
-
 import React, { useState } from "react";
 import { Form, Button, FlexboxGrid } from "rsuite";
 import "./Login.css";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
-import { Link, useNavigate } from 'react-router-dom';
-import swal from 'sweetalert';
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import HeaderLogin from "./Header";
+import axios from "axios";
 
 const Login = () => {
-  const navigate = useNavigate();
+  const history = useNavigate();
   const [email, setEmail] = useState("");
+
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
@@ -17,45 +18,53 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
-  const handleLogin = async () => {
-    try {
-      const response = await fetch('https://api-peixes.vercel.app/api/users/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
-      });
+  async function handleLogin() {
+    const obj = { email: email.toString(), password: password.toString() };
 
-      if (response.ok) {
-        const data = await response.json();
+    await axios({
+      method: "post",
+      url: "https://api-peixes.vercel.app/api/users/login",
+      headers: {
+        accept: "*/*",
+        "Content-Type": "application/json",
+      },
+      data: obj,
+    })
+      .then((res) => {
+        if (res.data.message === "Login bem-sucedido") {
+          swal({
+            title: "SUCESSO!",
+            text: "Usuário Cadastrado com Sucesso!",
+            icon: "success",
+          });
+          sessionStorage.setItem("idUsuario", res.data.userId);
+          history("/home");
+        } else {
+          swal({
+            title: "ERRO!",
+            text: "Usuário ou senha incorretos. Por favor, verifique suas credenciais e tente novamente.",
+            icon: "error",
+          });
+        }
+      })
+
+      .catch((erro) => {
         swal({
-          title: "Sucesso",
-          text: "Login bem-sucedido",
-          icon: "success",
-        });
-        navigate('/cards', { state: { userId: data.userId } }); // Passando o userId
-      } else {
-        const errorData = await response.json();
-        swal({
-          title: "Erro",
-          text: `Erro ao fazer login: ${errorData.message}`,
+          title: "ERRO!",
+          text: "Usuário ou senha incorretos. Por favor, verifique suas credenciais e tente novamente.",
           icon: "error",
         });
-      }
-    } catch (error) {
-      swal({
-        title: "Erro",
-        text: `Erro ao fazer login: ${error.message}`,
-        icon: "error",
       });
-    }
-  };
+  }
 
   return (
-    <div className="login-container">
-      <h4 className="titulo" style={{marginLeft:"20rem"}}>FAÇA SEU LOGIN</h4>
-      <Form>
+    <Form>
+      <HeaderLogin />
+      <div className="login-containers">
+        <h4 className="titulo" style={{ marginLeft: "20rem" }}>
+          FAÇA SEU LOGIN
+        </h4>
+
         <FlexboxGrid>
           <FlexboxGrid.Item colspan={24}>
             <Form.Group>
@@ -92,7 +101,7 @@ const Login = () => {
             </Form.Group>
           </FlexboxGrid.Item>
         </FlexboxGrid>
-       
+
         <FlexboxGrid style={{ marginTop: "1rem" }}>
           <Button appearance="primary" color="blue" onClick={handleLogin}>
             ENTRAR
@@ -101,8 +110,8 @@ const Login = () => {
         <FlexboxGrid justify="center" style={{ marginTop: "1rem" }}>
           <Link to="/cadastro">Não Tenho Conta</Link>
         </FlexboxGrid>
-      </Form>
-    </div>
+      </div>
+    </Form>
   );
 };
 

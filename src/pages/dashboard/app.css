@@ -1,0 +1,14 @@
+.App {
+    text-align: center;
+    color: black;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    color: black;
+  }
+
+  
