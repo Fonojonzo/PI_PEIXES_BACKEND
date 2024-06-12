@@ -54,7 +54,7 @@ const CardItem = ({ listCard }) => {
               <FlexboxGrid.Item colspan={12}>
                 <h3 className="card-description">Nome: {selectedCard?.Nome}</h3>
                 <p className="card-description">
-                  Espécie: {selectedCard?.especie}
+                  Espécie: {selectedCard?.Especie}
                 </p>
                 <p className="card-description">
                   Alimentação: {selectedCard?.Alimentacao}
