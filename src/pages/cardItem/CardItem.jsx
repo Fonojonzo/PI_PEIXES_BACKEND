@@ -100,10 +100,10 @@ const CardItem = ({ listCard, refreshList }) => {
                   className="btn_remove"
                   color="red"
                   appearance="primary"
-                  loading={loading} // Mostrar estado de carregamento
+                  loading={loading} 
                   onClick={() => handleDelete(selectedCard?._id)}
                 >
-                  Remover peixee
+                  Remover peixe
                 </Button>
               </FlexboxGrid.Item>
             </FlexboxGrid>
