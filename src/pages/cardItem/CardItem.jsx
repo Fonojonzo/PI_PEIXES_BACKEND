@@ -6,6 +6,7 @@ import axios from "axios";
 const CardItem = ({ listCard, refreshList }) => {
   const [open, setOpen] = useState(false);
   const [selectedCard, setSelectedCard] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleOpen = (card) => {
     setSelectedCard(card);
@@ -17,15 +18,19 @@ const CardItem = ({ listCard, refreshList }) => {
   };
 
   const handleDelete = async (id) => {
-    console.log("ID do peixe para deletar:", id);  // Log para verificar o ID
+    console.log("ID do peixe para deletar:", id);
+    setLoading(true); // Ativar estado de carregamento
     try {
       const response = await axios.delete(`https://api-peixes.vercel.app/api/peixes/${id}`);
-      console.log("Resposta da API:", response);  // Log para verificar a resposta da API
+      console.log("Resposta da API:", response);
       alert("Peixe removido com sucesso!");
-      refreshList();
+      handleClose(); // Fechar o modal
+      refreshList(); // Atualizar a lista de peixes chamando a função passada por props
     } catch (error) {
-      console.error("Erro ao remover peixe:", error.response || error);  // Log detalhado do erro
+      console.error("Erro ao remover peixe:", error.response || error);
       alert("Erro ao remover peixe. Tente novamente.");
+    } finally {
+      setLoading(false); // Desativar estado de carregamento
     }
   };
 
@@ -53,6 +58,7 @@ const CardItem = ({ listCard, refreshList }) => {
               className="btn_remove"
               color="red"
               appearance="primary"
+              loading={loading} // Mostrar estado de carregamento
               onClick={(event) => {
                 event.stopPropagation();
                 handleDelete(e._id);
@@ -94,9 +100,10 @@ const CardItem = ({ listCard, refreshList }) => {
                   className="btn_remove"
                   color="red"
                   appearance="primary"
+                  loading={loading} // Mostrar estado de carregamento
                   onClick={() => handleDelete(selectedCard?._id)}
                 >
-                  Remover peixe
+                  Remover peixee
                 </Button>
               </FlexboxGrid.Item>
             </FlexboxGrid>
