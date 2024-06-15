@@ -1,8 +1,41 @@
-# React + Vite
+# Projeto React - Fish-Care
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este é o repositório do projeto **Fish-Care**, uma aplicação React para monitoramento e alimentação automatizada de peixes.
 
-Currently, two official plugins are available:
+## Acesse a Aplicação
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Você pode acessar a aplicação online através do seguinte link:
+[PI Peixes - Aplicação Online](https://pi-peixes-frontend.vercel.app/)
+
+## Pré-requisitos
+
+Antes de começar, certifique-se de ter o Node.js e npm (Node Package Manager) instalados em sua máquina. Você pode baixá-los [aqui](https://nodejs.org/).
+
+## Instalando o Projeto
+
+Siga os passos abaixo para configurar e executar o projeto localmente:
+
+1. Clone o repositório para sua máquina local usando o seguinte comando:
+
+    ```bash
+    git clone [https://github.com/seu-usuario/pi-peixes-frontend.git](https://github.com/Fonojonzo/PI_PEIXES_FRONTEND.git)
+    ```
+
+2. Navegue até o diretório do projeto:
+
+    ```bash
+    cd pi-peixes-frontend
+    ```
+
+3. Instale as dependências do projeto:
+
+    ```bash
+    npm install
+    ```
+
+## Executando o Projeto
+
+Após a instalação das dependências, você pode iniciar a aplicação localmente com o comando:
+
+```bash
+npm start
